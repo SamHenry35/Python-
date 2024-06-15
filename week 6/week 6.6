@@ -1,0 +1,95 @@
+Program to print all the distinct elements in an array. Distinct elements are nothing but the unique (non-duplicate) elements present in the given array.
+
+Input Format:
+
+First line take an Integer input from stdin which is array length n.
+
+Second line take n Integers which is inputs of array.
+
+Output Format:
+
+Print the Distinct Elements in Array in single line which is space Separated
+
+Example Input:
+
+5
+
+1 
+
+2 
+
+2 
+
+3 
+
+4
+
+Output:
+
+1 2 3 4
+
+Example Input:
+
+6
+
+1 
+
+1 
+
+2 
+
+2 
+
+3 
+
+3
+
+Output:
+
+1 2 3
+
+
+For example:
+Input 	Result
+
+5
+1 
+2 
+2 
+3
+4
+
+	
+
+1 2 3 4 
+
+6
+1 
+1 
+2 
+2 
+3 
+3
+
+	
+
+1 2 3 
+
+
+# Input array length and elements
+n = int(input())
+arr = [int(input()) for _ in range(n)]
+
+# Create a set to store unique elements
+distinct_elements = set()
+
+# Iterate through the array and add elements to the set
+for num in arr:
+    distinct_elements.add(num)
+
+# Convert the set to a list and sort it for consistent output
+distinct_elements = sorted(list(distinct_elements))
+
+# Print the distinct elements
+print(*distinct_elements)
+
