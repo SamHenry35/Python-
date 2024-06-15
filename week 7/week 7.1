@@ -1,0 +1,65 @@
+The DNA sequence is composed of a series of nucleotides abbreviated as 'A', 'C', 'G', and 'T'.
+
+    For example, "ACGAATTCCG" is a DNA sequence.
+
+When studying DNA, it is useful to identify repeated sequences within the DNA.
+
+Given a string s that represents a DNA sequence, return all the 10-letter-long sequences (substrings) that occur more than once in a DNA molecule. You may return the answer in any order.
+
+ 
+
+Example 1:
+
+Input: s = "AAAAACCCCCAAAAACCCCCCAAAAAGGGTTT"
+Output: ["AAAAACCCCC","CCCCCAAAAA"]
+
+Example 2:
+
+Input: s = "AAAAAAAAAAAAA"
+Output: ["AAAAAAAAAA"]
+
+ 
+
+
+For example:
+Input 	Result
+
+AAAAACCCCCAAAAACCCCCCAAAAAGGGTTT
+
+	
+
+AAAAACCCCC
+CCCCCAAAAA
+
+
+For example:
+Input 	Result
+
+AAAAACCCCCAAAAACCCCCCAAAAAGGGTTT
+
+	
+
+AAAAACCCCC
+CCCCCAAAAA
+
+def findRepeatedDnaSequences(s):
+    seen = set()
+    repeated = set()
+    for i in range(len(s) - 9):
+        sequence = s[i:i+10]
+        if sequence in seen:
+            repeated.add(sequence)
+        else:
+            seen.add(sequence)
+    return sorted(list(repeated))
+
+# Accept input from the user
+s = input()
+
+# Find repeated DNA sequences
+result = findRepeatedDnaSequences(s)
+
+# Print the result
+for sequence in result:
+    print(sequence)
+    
