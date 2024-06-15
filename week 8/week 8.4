@@ -1,0 +1,63 @@
+A sentence is a string of single-space separated words where each word consists only of lowercase letters.A word is uncommon if it appears exactly once in one of the sentences, and does not appear in the other sentence.
+
+Given two sentences s1 and s2, return a list of all the uncommon words. You may return the answer in any order.
+
+Example 1:
+
+Input: s1 = "this apple is sweet", s2 = "this apple is sour"
+
+Output: ["sweet","sour"]
+
+Example 2:
+
+
+Input: s1 = "apple apple", s2 = "banana"
+
+Output: ["banana"]
+
+ Constraints:
+
+1 <= s1.length, s2.length <= 200
+
+s1 and s2 consist of lowercase English letters and spaces.
+
+s1 and s2 do not have leading or trailing spaces.
+
+All the words in s1 and s2 are separated by a single space.
+
+Note:
+
+Use dictionary to solve the problem
+
+For example:
+Input 	Result
+
+this apple is sweet
+this apple is sour
+
+	
+
+sweet sour
+
+s1 = input()
+s2 = input()
+def uncommon_words(s1, s2):
+    def count_frequency(sentence):
+        frequency = {}
+        words = sentence.split()
+        for word in words:
+            frequency[word] = frequency.get(word, 0) + 1
+        return frequency
+    freq1 = count_frequency(s1)
+    freq2 = count_frequency(s2)
+    uncommon = []
+    for word, count in freq1.items():
+        if count == 1 and word not in freq2:
+            uncommon.append(word)
+    for word, count in freq2.items():
+        if count == 1 and word not in freq1:
+            uncommon.append(word)
+    
+    return uncommon
+uncommon_words_list = uncommon_words(s1, s2)
+print(' '.join(uncommon_words_list))
