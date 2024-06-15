@@ -1,0 +1,27 @@
+Given an integer n, print true if it is a power of two. Otherwise, print false.
+
+An integer n is a power of two, if there exists an integer x such that n == 2x.
+
+For example:
+Input 	Result
+
+1
+
+	
+
+True
+
+80
+
+	
+
+False
+
+a=int(input())
+for i in range(100):
+    if 4**i==a:
+        print(True)
+        break
+else:
+    print(False)
+    
